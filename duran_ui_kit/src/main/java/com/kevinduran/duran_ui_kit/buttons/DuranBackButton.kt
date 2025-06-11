@@ -2,6 +2,7 @@ package com.kevinduran.duran_ui_kit.buttons
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
@@ -26,6 +27,7 @@ fun DuranBackButton(
     ) {
         Icon(
             imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+
             contentDescription = "back"
         )
     }
