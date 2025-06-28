@@ -2,7 +2,6 @@ package com.kevinduran.duran_ui_kit.pages
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,8 +24,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -36,7 +33,7 @@ fun DuranWelcomePage(
     title: String,
     subtitle: String,
     modifier: Modifier = Modifier,
-    image: Painter,
+    header: @Composable () -> Unit,
     primaryButtonText: String = "Primary",
     secondaryButtonText: String = "Secondary",
     showPrimaryButton: Boolean = true,
@@ -57,14 +54,7 @@ fun DuranWelcomePage(
             verticalArrangement = Arrangement.Center
         ) {
 
-            Box(Modifier.weight(1f)) {
-                Image(
-                    painter = image,
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.FillHeight
-                )
-            }
+            Box(Modifier.weight(1f)) { header() }
 
             Box(Modifier.weight(2f).fillMaxWidth()) {
                 Canvas(
