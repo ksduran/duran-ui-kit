@@ -1,7 +1,6 @@
 package com.kevinduran.duran_ui_kit.listitem
 
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -47,9 +46,7 @@ fun DuranLargeListItem(
             .fillMaxWidth()
             .combinedClickable(
                 onClick = onClick,
-                onLongClick = onLongPress,
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
+                onLongClick = onLongPress
             )
     ) {
         Row(

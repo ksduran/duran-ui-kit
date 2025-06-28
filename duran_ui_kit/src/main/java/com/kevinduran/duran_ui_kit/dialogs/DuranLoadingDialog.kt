@@ -16,15 +16,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 
 @Composable
-fun DuranLoadingDialog(visible: Boolean, onDismiss: () -> Unit) {
+fun DuranLoadingDialog(
+    visible: Boolean,
+    loading: @Composable (() -> Unit)? = null,
+    loadingText: String = "Un momento",
+    showLoadingText: Boolean = true,
+    onDismiss: () -> Unit
+) {
 
     if(visible) {
         Box(Modifier.fillMaxSize()) {
             Dialog(onDismissRequest = onDismiss) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    CircularProgressIndicator(color = Color.White)
+                    loading ?: CircularProgressIndicator(color = Color.White)
                     Text(
-                        text = "Un momento",
+                        text = loadingText,
                         color = Color.White,
                         style = MaterialTheme.typography.headlineLarge,
                         fontWeight = FontWeight.Bold,

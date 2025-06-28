@@ -9,30 +9,28 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
 fun DuranBackButton(navController: NavController) {
-    Card(
-        shape = CircleShape,
-        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
-        colors = CardDefaults.cardColors().copy(
-            containerColor = MaterialTheme.colorScheme.surface,
-        ),
-        border = CardDefaults.outlinedCardBorder().copy(
-            width = 1.dp
-        ),
-        onClick = { navController.popBackStack() },
-    ) {
-        IconButton(
-            onClick = { navController.popBackStack() }
-        ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
-                contentDescription = "Back"
-            )
+    var isEnabled by remember { mutableStateOf(false) }
+    IconButton(
+        onClick = {
+            if(!isEnabled) {
+                isEnabled = true
+                navController.popBackStack()
+            }
         }
+    ) {
+        Icon(
+            imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+            contentDescription = "Back"
+        )
     }
 }
 

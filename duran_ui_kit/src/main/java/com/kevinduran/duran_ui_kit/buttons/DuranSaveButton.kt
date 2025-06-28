@@ -17,12 +17,17 @@ import androidx.compose.ui.unit.sp
 fun DuranSaveButton(
     modifier: Modifier = Modifier,
     text: String = "Guardar",
+    enabled: Boolean? = null,
     onSave: () -> Unit
 ) {
     var isSaved by remember { mutableStateOf(false) }
 
     Button(
         onClick = {
+            enabled?.let {
+                onSave()
+                return@Button
+            }
             if (!isSaved) {
                 onSave()
                 isSaved = true
