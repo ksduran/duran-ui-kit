@@ -18,9 +18,11 @@ fun DuranTextButton(
     text: String,
     showIcon: Boolean = true,
     icon: @Composable (() -> Unit)? = null,
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     TextButton(
+        enabled = enabled,
         onClick = onClick,
         modifier = modifier.requiredWidth(width = 180.dp),
         shape = MaterialTheme.shapes.medium,

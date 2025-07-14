@@ -22,9 +22,11 @@ fun DuranButton(
     foreground: Color? = null,
     showIcon: Boolean = true,
     icon: @Composable (() -> Unit)? = null,
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     Button(
+        enabled = enabled,
         onClick = onClick,
         modifier = modifier.requiredWidth(width = 180.dp),
         colors = ButtonDefaults.buttonColors(

@@ -19,15 +19,12 @@ fun DuranLargeListItem(
     modifier: Modifier = Modifier,
     subtitle: String? = null,
     footer: String? = null,
-    isSelected: Boolean,
+    isSelected: Boolean = false,
     leading: (@Composable () -> Unit)? = null,
-    onClick: () -> Unit,
-    onLongPress: () -> Unit,
-    tag: @Composable (() -> Unit)? = null,
-    showActionButton: Boolean = false,
-    actionIcon: @Composable (() -> Unit)? = {
-        Icon(imageVector = Icons.Default.MoreVert, contentDescription = "Action")
-    }
+    trailing: (@Composable () -> Unit)? = null,
+    onClick: () -> Unit = {},
+    onLongPress: () -> Unit = {},
+    tag: @Composable (() -> Unit)? = null
 ) {
 
     val backgroundColor = if (isSelected) {
@@ -65,7 +62,6 @@ fun DuranLargeListItem(
 
                 Spacer(modifier = Modifier.height(2.dp))
 
-                // Título
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleMedium,
@@ -73,7 +69,6 @@ fun DuranLargeListItem(
                     overflow = TextOverflow.Ellipsis
                 )
 
-                // Subtítulo
                 subtitle?.let {
                     Text(
                         text = it,
@@ -84,7 +79,6 @@ fun DuranLargeListItem(
                     )
                 }
 
-                // Footer
                 footer?.let {
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
@@ -98,13 +92,7 @@ fun DuranLargeListItem(
                 }
             }
 
-            // Botón de acción opcional
-            if (showActionButton && actionIcon != null) {
-                Spacer(modifier = Modifier.width(12.dp))
-                Box(modifier = Modifier.size(24.dp)) {
-                    actionIcon()
-                }
-            }
+            trailing?.invoke()
         }
     }
 }

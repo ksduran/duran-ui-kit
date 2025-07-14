@@ -29,13 +29,15 @@ fun DuranLoadingDialog(
             Dialog(onDismissRequest = onDismiss) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     loading ?: CircularProgressIndicator(color = Color.White)
-                    Text(
-                        text = loadingText,
-                        color = Color.White,
-                        style = MaterialTheme.typography.headlineLarge,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(vertical = 10.dp)
-                    )
+                    if(showLoadingText) {
+                        Text(
+                            text = loadingText,
+                            color = Color.White,
+                            style = MaterialTheme.typography.headlineLarge,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(vertical = 10.dp)
+                        )
+                    }
                 }
             }
 

@@ -19,13 +19,15 @@ fun DuranOutlinedButton(
     text: String,
     showIcon: Boolean = true,
     icon: @Composable (() -> Unit)? = null,
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     OutlinedButton(
+        enabled = enabled,
         onClick = onClick,
         modifier = modifier.requiredWidth(width = 180.dp),
         shape = MaterialTheme.shapes.medium,
-        border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.outline)
+        border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.outline),
     ) {
         Text(
             text = text,
