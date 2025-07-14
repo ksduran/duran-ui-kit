@@ -28,7 +28,7 @@ fun DuranButton(
     Button(
         enabled = enabled,
         onClick = onClick,
-        modifier = modifier.requiredWidth(width = 180.dp),
+        modifier = modifier,
         colors = ButtonDefaults.buttonColors(
             containerColor = backgroundColor ?: MaterialTheme.colorScheme.primary,
             contentColor = foreground ?: MaterialTheme.colorScheme.surface

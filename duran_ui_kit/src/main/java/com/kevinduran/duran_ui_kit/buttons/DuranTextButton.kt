@@ -24,7 +24,7 @@ fun DuranTextButton(
     TextButton(
         enabled = enabled,
         onClick = onClick,
-        modifier = modifier.requiredWidth(width = 180.dp),
+        modifier = modifier,
         shape = MaterialTheme.shapes.medium,
     ) {
         Text(

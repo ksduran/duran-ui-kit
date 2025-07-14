@@ -25,7 +25,7 @@ fun DuranOutlinedButton(
     OutlinedButton(
         enabled = enabled,
         onClick = onClick,
-        modifier = modifier.requiredWidth(width = 180.dp),
+        modifier = modifier,
         shape = MaterialTheme.shapes.medium,
         border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.outline),
     ) {
